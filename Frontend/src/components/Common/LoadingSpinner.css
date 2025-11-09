@@ -1,0 +1,17 @@
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  justify-content: center;
+}
+
+.loading-spinner__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.loading-spinner__text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}

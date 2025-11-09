@@ -1,0 +1,28 @@
+.chat-window {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window__messages {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: var(--space-sm) var(--space-lg);
+  padding-bottom: var(--space-md);
+  overflow-y: auto;
+  gap: var(--space-md);
+}
+
+.chat-window__messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-window__messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+}

@@ -1,0 +1,88 @@
+.book-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
+  z-index: 1000;
+}
+
+.book-modal__content {
+  background: var(--surface-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  width: min(640px, 100%);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.book-modal__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--chip-bg);
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.book-modal__close:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.book-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.book-modal__cover {
+  width: 140px;
+  border-radius: var(--radius-md);
+  align-self: center;
+  box-shadow: var(--shadow-soft);
+  background: #dcdfe8;
+}
+
+.book-modal__label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.book-modal__title {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.book-modal__author {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.book-modal__summary {
+  line-height: 1.6;
+}
+
+.book-modal__source {
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .book-modal__body {
+    flex-direction: row;
+  }
+
+  .book-modal__cover {
+    margin-right: var(--space-md);
+  }
+}

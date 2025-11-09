@@ -1,0 +1,28 @@
+.recommendation-list {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.recommendation-list--vertical {
+  flex-direction: column;
+}
+
+.recommendation-list--horizontal {
+  flex-direction: row;
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  scroll-snap-type: x proximity;
+}
+
+.recommendation-list--horizontal::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recommendation-list--horizontal::-webkit-scrollbar-thumb {
+  background: rgba(97, 56, 221, 0.24);
+  border-radius: 999px;
+}
+
+.recommendation-list__item {
+  scroll-snap-align: start;
+}
