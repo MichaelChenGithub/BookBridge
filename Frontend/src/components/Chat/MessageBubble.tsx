@@ -1,4 +1,5 @@
 import { Message } from '../../types';
+import Logo from '../../assets/logo.png';
 import './MessageBubble.css';
 
 interface MessageBubbleProps {
@@ -9,12 +10,7 @@ interface MessageBubbleProps {
 }
 
 const AiAvatar = () => (
-  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-    <path
-      d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v13.4c0 .78-.87 1.23-1.52.77l-4.96-3.47a1.5 1.5 0 0 0-1.7 0L12.9 23.2a1 1 0 0 1-1.52-.82z"
-      fill="currentColor"
-    />
-  </svg>
+  <img src={Logo} alt="BookBridge logo" className="message-bubble__ai-logo" loading="lazy" />
 );
 
 const MessageBubble = ({
@@ -32,11 +28,11 @@ const MessageBubble = ({
 
   return (
     <div className={`message-bubble ${modifier}`}>
-      {showAvatar && (
+      {/* {showAvatar && (
         <div className="message-bubble__avatar" aria-hidden="true">
           <AiAvatar />
         </div>
-      )}
+      )} */}
       <div className="message-bubble__body">
         <p className="message-bubble__text">{message.text}</p>
 

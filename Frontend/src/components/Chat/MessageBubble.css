@@ -24,9 +24,16 @@
   margin-top: 4px;
 }
 
-.message-bubble__avatar svg {
-  width: 18px;
-  height: 18px;
+.message-bubble__avatar img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.message-bubble__ai-logo {
+  display: block;
+  max-width: 100%;
+  height: 100%;
 }
 
 .message-bubble__body {
@@ -71,7 +78,7 @@
 }
 
 .message-bubble__button {
-  margin-top: var(--space-xs);
+  margin: var(--space-xs) 0 ;
   border: none;
   background: var(--accent-color);
   color: #fff;
