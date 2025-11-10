@@ -1,0 +1,17 @@
+# Core runtime
+pyspark==3.5.1
+pyarrow==16.1.0
+pandas==2.2.2
+
+# Notebook tooling
+jupyterlab==4.2.5
+ipykernel==6.29.5
+
+# Google Cloud integrations
+google-cloud-storage==2.17.0
+google-cloud-dataproc==5.8.1
+google-auth==2.33.0
+python-dotenv==1.0.1
+
+# Optional utilities
+grpcio==1.65.4
