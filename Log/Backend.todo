@@ -1,5 +1,5 @@
 ☐ **[資料前處理]**
-    - **工具**: Apache Spark + Local Jupyter notebook + Google Cloud Dataproc
+    - **工具**: Apache Spark + Cloud Jupyter notebook + Google Cloud Dataproc
     - **任務**:
         1. 讀取 `Amazon-Reviews-2023 (Books)` 原始資料 (JSON/CSV)。
         2. **資料縮減**: 篩選並保留互動量最高的 Top 100,000 本書。
