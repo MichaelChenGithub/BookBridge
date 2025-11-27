@@ -1,4 +1,4 @@
-☐ **[資料前處理]**
+✔ **[資料前處理]** @done(25-11-26 20:07)
     - **工具**: Apache Spark + Cloud Jupyter notebook + Google Cloud Dataproc
     - **任務**:
         1. 讀取 `Amazon-Reviews-2023 (Books)` 原始資料 (JSON/CSV)。
