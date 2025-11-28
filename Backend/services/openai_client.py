@@ -79,7 +79,7 @@ def _clean_recommendations(recommendations: Any) -> List[Dict[str, str]]:
     return cleaned
 
 
-def generate_book_candidates(prompt: str) -> List[Dict[str, str]]:
+def generate_book_candidates(prompt: str, history: Optional[List[str]] = None) -> List[Dict[str, str]]:
     """
     Generate 10 ordered book recommendations for the given user prompt.
 
@@ -89,16 +89,28 @@ def generate_book_candidates(prompt: str) -> List[Dict[str, str]]:
     system_instruction = (
         "You are a recommender that suggests books a reader is most likely to enjoy. "
         "Return exactly 10 distinct books ordered from best match to least match. "
-        "Only include the book title for each recommendation."
+        "For each item, output only the canonical book title—no author names, series labels, subtitles, punctuation, or extra text."
     )
+
+    messages: List[Dict[str, str]] = [{"role": "system", "content": system_instruction}]
+    history_items: List[str] = []
+    if history:
+        if isinstance(history, str):
+            history_items = [history]
+        else:
+            history_items = list(history)
+
+    for entry in history_items:
+        if not entry:
+            continue
+        messages.append({"role": "user", "content": str(entry)})
+
+    messages.append({"role": "user", "content": prompt})
 
     response = _client.chat.completions.create(
         model=_DEFAULT_MODEL,
         temperature=0.4,
-        messages=[
-            {"role": "system", "content": system_instruction},
-            {"role": "user", "content": prompt},
-        ],
+        messages=messages,
         response_format=_RESPONSE_FORMAT,
     )
 

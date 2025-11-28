@@ -13,5 +13,12 @@ google-cloud-dataproc==5.8.1
 google-auth==2.33.0
 python-dotenv==1.0.1
 
+# Recommender
+gensim==4.3.3
+
+# API
+fastapi==0.115.2
+uvicorn==0.30.6
+
 # Optional utilities
 grpcio==1.65.4

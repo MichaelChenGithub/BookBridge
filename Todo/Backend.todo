@@ -6,7 +6,7 @@
         3. **資料轉換**: 提取 `(user_id, book_id, timestamp)` 互動資料。
         4. **序列生成**: 為每一位使用者，按時間排序生成互動序列（例如：`[book_id_A, book_id_B, book_id_C, ...]`）。
         5. 將處理後的序列資料儲存為 Parquet 格式，以供 `Gensim` 讀取。
-☐ **[模型訓練]**
+✔ **[模型訓練]** @done(25-11-28 12:50)
     - **工具**: `Gensim` (Word2Vec 模組) + Local Jupyter notebook + GCE
     - **執行環境**: GCE (Google Compute Engine) VM（作為一次性任務執行，非 24/7 服務）。
     - **任務**: 在 Spark 處理完的序列資料上訓練 `item2vec` (Word2Vec) 模型。

@@ -13,10 +13,26 @@ yarn-error.log*
 
 # Environment variables
 .env
+.env.*
+.python-version
+/Backend/.env
+/Backend/.env.*
+/Backend/.python-version
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Python caches and virtualenvs
+__pycache__/
+*.py[cod]
+/.venv
+/venv
+/Backend/.venv
+/Backend/venv
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # IDE and editor directories
 .idea/
