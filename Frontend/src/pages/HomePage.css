@@ -96,13 +96,13 @@
 
 @media (max-width: 767px) {
   .home-page__grid {
-    justify-items: center;
+    justify-items: stretch;
   }
 
   .home-page__chat-shell {
-    align-items: center;
     width: 100%;
-    max-width: 520px;
+    max-width: 100%;
+    align-items: stretch;
   }
 
   .home-page__chat-shell > * {

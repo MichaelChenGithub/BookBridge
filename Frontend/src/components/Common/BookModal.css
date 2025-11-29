@@ -67,14 +67,15 @@
   margin-bottom: var(--space-md);
 }
 
-.book-modal__summary {
-  line-height: 1.6;
+.book-modal__stats {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text-secondary);
 }
 
-.book-modal__source {
-  margin-top: var(--space-md);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+.book-modal__stat {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 @media (min-width: 640px) {

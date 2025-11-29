@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Book, Message } from '../types';
-import { fetchChatResponse, newMockRecommendations } from '../services/api';
+import { fetchChatResponse } from '../services/api';
 
 interface RecommendationHistoryEntry {
   messageId: string;
@@ -22,7 +22,6 @@ interface ChatActions {
   handleViewDetails: (book: Book) => void;
   handleCloseModal: () => void;
   showRecommendationsForMessage: (messageId: string) => void;
-  addMockRecommendationSet: () => void;
 }
 
 export const ChatContext =
@@ -56,14 +55,14 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
     const trimmed = text.trim();
     if (!trimmed) return;
 
+    const userHistory = messages.filter((message) => message.sender === 'user').map((message) => message.text);
     const userMsg: Message = { id: crypto.randomUUID(), sender: 'user', text: trimmed };
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
     setError(null);
 
     try {
-      const current = [...messages, userMsg];
-      const aiMsg = await fetchChatResponse(current);
+      const aiMsg = await fetchChatResponse(trimmed, userHistory);
       setMessages((prev) => [...prev, aiMsg]);
 
       const aiRecommendations = aiMsg.recommendations ?? [];
@@ -93,20 +92,6 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
     [recommendationHistory]
   );
 
-  const addMockRecommendationSet = useCallback(() => {
-    const messageId = crypto.randomUUID();
-    const clonedBooks = newMockRecommendations.map((book) => ({ ...book }));
-    const mockMessage: Message = {
-      id: messageId,
-      sender: 'ai',
-      text: 'Developer mock set: here are additional titles for testing.',
-      recommendations: clonedBooks,
-    };
-
-    setMessages((prev) => [...prev, mockMessage]);
-    persistRecommendations(messageId, clonedBooks);
-  }, [persistRecommendations]);
-
   const value = React.useMemo(
     () => ({
       messages,
@@ -120,7 +105,6 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
       activeRecommendationMessageId,
       activeRecommendations,
       showRecommendationsForMessage,
-      addMockRecommendationSet,
     }),
     [
       messages,
@@ -132,7 +116,6 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
       activeRecommendationMessageId,
       activeRecommendations,
       showRecommendationsForMessage,
-      addMockRecommendationSet,
     ]
   );
 

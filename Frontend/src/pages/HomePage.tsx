@@ -14,11 +14,9 @@ const HomePage = () => {
     activeRecommendations,
     showRecommendationsForMessage,
     activeRecommendationMessageId,
-    addMockRecommendationSet,
   } = useChat();
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const latestRecommendationIdRef = useRef<string | null>(null);
-  const showTestingControls = import.meta.env.DEV;
 
   useEffect(() => {
     if (!activeRecommendationMessageId) {
@@ -53,20 +51,6 @@ const HomePage = () => {
               {error}
             </div>
           )}
-          {/* {showTestingControls && (
-            <div className="home-page__testing-controls">
-              <button
-                type="button"
-                className="home-page__mock-button"
-                onClick={() => {
-                  addMockRecommendationSet();
-                  setIsPanelOpen(true);
-                }}
-              >
-                Add New Mock Recommendations
-              </button>
-            </div>
-          )} */}
           <div className="home-page__chat-shell">
             <ChatWindow
               onShowRecommendations={handleShowRecommendations}

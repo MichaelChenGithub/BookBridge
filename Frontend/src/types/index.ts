@@ -1,11 +1,12 @@
 /** Represents a book entity */
 export interface Book {
-  id: string;
+  /** Backend ASIN identifier for the book */
+  asin: string;
   title: string;
-  author: string;
-  summary: string;
-  coverUrl?: string;
-  source?: string;
+  author_name?: string | null;
+  average_rating?: number | null;
+  rating_number?: number | null;
+  primary_image?: string | null;
 }
 
 /** Represents a chat message */

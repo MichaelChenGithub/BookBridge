@@ -26,3 +26,10 @@
   background: rgba(0, 0, 0, 0.1);
   border-radius: 999px;
 }
+
+@media (max-width: 768px) {
+  .chat-window__messages {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

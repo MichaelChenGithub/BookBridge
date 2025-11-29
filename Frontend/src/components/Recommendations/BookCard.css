@@ -40,13 +40,9 @@
   font-size: 0.85rem;
 }
 
-.book-card__summary {
+.book-card__rating {
   font-size: 0.85rem;
   color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .book-card__footer {

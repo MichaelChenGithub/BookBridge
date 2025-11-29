@@ -11,7 +11,7 @@ interface RecommendationListProps {
 const RecommendationList = ({ books, onViewBook, orientation = 'vertical' }: RecommendationListProps) => (
   <div className={`recommendation-list recommendation-list--${orientation}`} role="list">
     {books.map((book) => (
-      <div key={book.id} role="listitem" className="recommendation-list__item">
+      <div key={book.asin} role="listitem" className="recommendation-list__item">
         <BookCard book={book} onViewDetails={onViewBook} />
       </div>
     ))}

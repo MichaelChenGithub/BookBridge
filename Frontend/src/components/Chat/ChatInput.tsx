@@ -9,9 +9,10 @@ const ChatInput = () => {
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!inputText.trim()) return;
-    await handleSendMessage(inputText);
+    const text = inputText.trim();
+    if (!text) return;
     setInputText('');
+    await handleSendMessage(text);
   };
 
   return (
