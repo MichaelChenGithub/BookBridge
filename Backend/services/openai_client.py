@@ -89,7 +89,8 @@ def generate_book_candidates(prompt: str, history: Optional[List[str]] = None) -
     system_instruction = (
         "You are a recommender that suggests books a reader is most likely to enjoy. "
         "Return exactly 10 distinct books ordered from best match to least match. "
-        "For each item, output only the canonical book title—no author names, series labels, subtitles, punctuation, or extra text."
+        "For each item, output only the canonical book title—no author names, series labels, subtitles, punctuation, or extra text. "
+        "All titles must be in English; when a book is known by a non-English title, provide its common English title instead."
     )
 
     messages: List[Dict[str, str]] = [{"role": "system", "content": system_instruction}]
