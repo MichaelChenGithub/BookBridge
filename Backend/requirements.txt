@@ -19,6 +19,11 @@ gensim==4.3.3
 # API
 fastapi==0.115.2
 uvicorn==0.30.6
+pydantic==2.9.2
+openai==1.51.2
+
+# Testing
+pytest==8.3.3
 
 # Optional utilities
 grpcio==1.65.4
